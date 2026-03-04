@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+:root {
+    --bg-gradient-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --calculator-bg-light: rgba(255, 255, 255, 0.95);
+    --calculator-bg-dark: rgba(0, 0, 0, 0.85);
+    --text-light: #333;
+    --text-dark: #fff;
+    --btn-bg-light: #f0f0f0;
+    --btn-bg-dark: #2d2d2d;
+    --operator-bg-light: #667eea;
+    --operator-bg-dark: #4a5fa5;
+    --equals-bg-light: #764ba2;
+    --equals-bg-dark: #5a3780;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient-light);
+    transition: background 0.3s ease;
+    padding: 20px;
+}
+
+body.dark-mode {
+    background: var(--bg-gradient-dark);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#themeToggle {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.05);
+}
+
+.calculator {
+    background: var(--calculator-bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.dark-mode .calculator {
+    background: var(--calculator-bg-dark);
+    color: var(--text-dark);
+}
+
+.calculator-header {
+    margin-bottom: 20px;
+}
+
+.display-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: transparent;
+    font-size: 2em;
+    text-align: right;
+    color: var(--text-light);
+    outline: none;
+    pointer-events: none;
+}
+
+body.dark-mode #display {
+    color: var(--text-dark);
+}
+
+#history {
+    height: 20px;
+    font-size: 0.9em;
+    color: #999;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    background: var(--btn-bg-light);
+    color: var(--text-light);
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .btn {
+    background: var(--btn-bg-dark);
+    color: var(--text-dark);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.operator {
+    background: var(--operator-bg-light);
+    color: white;
+}
+
+body.dark-mode .btn.operator {
+    background: var(--operator-bg-dark);
+}
+
+.btn.function {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn.equals {
+    background: var(--equals-bg-light);
+    color: white;
+    grid-row: span 2;
+}
+
+body.dark-mode .btn.equals {
+    background: var(--equals-bg-dark);
+}
+
+.btn.zero {
+    grid-column: span 2;
+}
+
+.footer {
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.footer p {
+    font-size: 0.9em;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 350px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
