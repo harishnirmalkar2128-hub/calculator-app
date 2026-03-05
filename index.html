@@ -3,308 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harish Nirmalkar | AI ML Engineer</title>
+    <title>ULTIMATE CALCULATOR 3000</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Emergency fallback styles - in case CSS fails to load */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { color: #667eea; }
-        .btn { display: inline-block; padding: 10px 20px; margin: 5px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; }
-    </style>
 </head>
 <body>
-
-    <!-- ========== 3D Particle Canvas Background ========== -->
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- ========== THEME TOGGLE ========== -->
+    <!-- Theme Toggle -->
     <div class="theme-toggle">
-        <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+        <button id="themeToggle">🌙 Dark Mode</button>
     </div>
 
-    <!-- ========== MAIN CONTAINER ========== -->
-    <div class="container">
-
-        <!-- ========== NAVIGATION ========== -->
-        <nav class="navbar glass-effect">
-            <div class="nav-logo">
-                <span class="logo-text">&lt;/AI ML&gt;</span>
+    <!-- Main Container -->
+    <div class="calculator-container">
+        <!-- Calculator Header -->
+        <div class="calculator-header">
+            <div class="mode-indicator">
+                <span id="currentMode">Standard</span>
+                <button id="scientificToggle" class="mode-btn">🔬 Scientific</button>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="display-container">
+                <div class="display-history" id="history"></div>
+                <input type="text" id="display" readonly placeholder="0">
+                <div class="display-expression" id="expression"></div>
             </div>
-        </nav>
-
-        <!-- ========== HOME SECTION ========== -->
-        <section id="home" class="section">
-            <div class="home-content">
-                <div class="home-text fade-in">
-                    <div class="greeting-wrapper">
-                        <span class="greeting">👋 Hello, I'm</span>
-                    </div>
-                    <h1 class="glitch-text" data-text="Harish Nirmalkar">Harish <span>Nirmalkar</span></h1>
-                    <h2 class="typewriter" id="typewriter"></h2>
-                    <p class="home-description">
-                        <span class="highlight">MCA (AI ML) 2nd Sem Student</span> at Rungta International Skills University, Kohka-Kurud Bhilai
-                    </p>
-                    
-                    <div class="stats-container">
-                        <div class="stat-card">
-                            <span class="stat-number" id="projectsCount">0</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number" id="experienceCount">0</span>
-                            <span class="stat-label">Years</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number" id="clientsCount">0</span>
-                            <span class="stat-label">Skills</span>
-                        </div>
-                    </div>
-
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn primary-btn">Connect With Me 🚀</a>
-                        <a href="#projects" class="btn secondary-btn">View Projects →</a>
-                        <a href="#" onclick="alert('Resume coming soon!')" class="btn outline-btn">📄 Resume</a>
-                    </div>
-                </div>
-
-                <div class="home-image fade-in">
-                    <div class="floating-card card-1">
-                        <div class="card-content">
-                            <span class="emoji">🤖</span>
-                            <h3>AI ML</h3>
-                            <p>Student</p>
-                        </div>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="card-content">
-                            <span class="emoji">🐍</span>
-                            <h3>Python</h3>
-                            <p>Learning</p>
-                        </div>
-                    </div>
-                    <div class="floating-card card-3">
-                        <div class="card-content">
-                            <span class="emoji">🎓</span>
-                            <h3>MCA</h3>
-                            <p>2nd Sem</p>
-                        </div>
-                    </div>
-                    <div class="profile-ring">
-                        <div class="profile-image">
-                            <img src="https://via.placeholder.com/300" alt="Harish Nirmalkar" onerror="this.src='https://ui-avatars.com/api/?name=Harish+Nirmalkar&size=300&background=667eea&color=fff'">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== ABOUT SECTION ========== -->
-        <section id="about" class="section">
-            <h2 class="section-title">About <span>Me</span></h2>
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <p class="about-paragraph">
-                        Hello! I've just embarked on my <span class="highlight">Master of Computer Applications with Artificial Intelligence (MCA + AI/ML)</span> journey at Rungta International Skills University, Bhilai, and I'm thrilled to dive deep into the world of technology & Artificial Intelligence.
-                    </p>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">📍 Location:</span>
-                            <span class="info-value">Bhilai, India</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">🎓 Education:</span>
-                            <span class="info-value">MCA (AI ML) 2nd Sem</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">💼 Focus:</span>
-                            <span class="info-value badge available">AI ML Engineering</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">⚡ Goal:</span>
-                            <span class="info-value">Skill Development</span>
-                        </div>
-                    </div>
-
-                    <div class="goals-section">
-                        <h3 class="goals-title">🚀 MY GOALS:</h3>
-                        <div class="goal-item">
-                            <span class="goal-icon">🎯</span>
-                            <div><strong>Skill Development:</strong> Improving my core Python programming capabilities.</div>
-                        </div>
-                        <div class="goal-item">
-                            <span class="goal-icon">💼</span>
-                            <div><strong>Professional Growth:</strong> Enhancing my verbal and written communication skills for the tech industry.</div>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python 🐍</span>
-                        <span class="tech-badge">Machine Learning 🤖</span>
-                        <span class="tech-badge">AI 🧠</span>
-                        <span class="tech-badge">SQL 🗄️</span>
-                        <span class="tech-badge">HTML5 🌐</span>
-                        <span class="tech-badge">CSS3 🎨</span>
-                        <span class="tech-badge">JavaScript ⚡</span>
-                    </div>
-                </div>
-
-                <div class="about-image fade-in">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-year">2025</div>
-                            <div class="timeline-content">
-                                <h4>MCA (AI ML) 2nd Sem</h4>
-                                <p>Rungta International Skills University, Bhilai</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">2024</div>
-                            <div class="timeline-content">
-                                <h4>Started AI ML Journey</h4>
-                                <p>Learning Python & Machine Learning fundamentals</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">2024</div>
-                            <div class="timeline-content">
-                                <h4>BCA Graduate</h4>
-                                <p>Foundation in Computer Applications</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SKILLS SECTION ========== -->
-        <section id="skills" class="section">
-            <h2 class="section-title">Technical <span>Skills</span></h2>
-            
-            <div class="skills-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="programming">Programming</button>
-                <button class="filter-btn" data-filter="ml">AI/ML</button>
-                <button class="filter-btn" data-filter="web">Web Dev</button>
-                <button class="filter-btn" data-filter="database">Database</button>
-                <button class="filter-btn" data-filter="tools">Tools</button>
-            </div>
-
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Skills will be loaded by JavaScript -->
-            </div>
-        </section>
-
-        <!-- ========== PROJECTS SECTION ========== -->
-        <section id="projects" class="section">
-            <h2 class="section-title">Featured <span>Projects</span></h2>
-            
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be loaded by JavaScript -->
-            </div>
-        </section>
-
-        <!-- ========== CONTACT SECTION ========== -->
-        <section id="contact" class="section">
-            <h2 class="section-title">Get In <span>Touch</span></h2>
-            
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always excited to connect with fellow tech enthusiasts, mentors, and opportunities in AI/ML!</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <a href="mailto:harishnirmalkar2128@gmail.com">harishnirmalkar2128@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📱</span>
-                            <a href="tel:+919131653589">+91 91316 53589</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📸</span>
-                            <a href="https://instagram.com/harish._.nirmalkar" target="_blank">@harish._.nirmalkar</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Bhilai, Chhattisgarh, India</span>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link" title="GitHub">🐙 GitHub</a>
-                        <a href="#" class="social-link" title="LinkedIn">💼 LinkedIn</a>
-                        <a href="https://instagram.com/harish._.nirmalkar" class="social-link" title="Instagram">📸 Instagram</a>
-                        <a href="#" class="social-link" title="LeetCode">⚡ LeetCode</a>
-                    </div>
-
-                    <div class="visitor-counter">
-                        <span>👥 Profile Views:</span>
-                        <span id="visitorCount">1,234</span>
-                    </div>
-                </div>
-
-                <form class="contact-form fade-in" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn submit-btn">
-                        Send Message ✈️
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- ========== FOOTER ========== -->
-        <footer>
-            <p>&copy; 2026 Harish Nirmalkar. All rights reserved. | AI ML Engineer</p>
-        </footer>
-    </div>
-
-    <!-- ========== BACK TO TOP BUTTON ========== -->
-    <button id="backToTop" class="back-to-top" title="Back to Top">↑</button>
-
-    <!-- ========== CHAT SUPPORT ========== -->
-    <div class="chat-support" id="chatSupport">
-        <button class="chat-toggle" id="chatToggle">💬</button>
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">
-                <span>Chat with Harish!</span>
-                <button id="closeChat">✕</button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    👋 Hi! I'm Harish. How can I help you with AI/ML?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Type a message...">
-                <button id="sendMessage">➤</button>
-            </div>
+            <div class="memory-indicator" id="memoryIndicator">Memory: 0</div>
         </div>
+
+        <!-- Memory Panel -->
+        <div class="memory-panel">
+            <button class="memory-btn" onclick="memoryClear()">MC</button>
+            <button class="memory-btn" onclick="memoryRecall()">MR</button>
+            <button class="memory-btn" onclick="memoryAdd()">M+</button>
+            <button class="memory-btn" onclick="memorySubtract()">M-</button>
+        </div>
+
+        <!-- Scientific Panel (Initially Hidden) -->
+        <div class="scientific-panel" id="scientificPanel" style="display: none;">
+            <button class="sci-btn" onclick="appendFunction('sin(')">sin</button>
+            <button class="sci-btn" onclick="appendFunction('cos(')">cos</button>
+            <button class="sci-btn" onclick="appendFunction('tan(')">tan</button>
+            <button class="sci-btn" onclick="appendFunction('log(')">log</button>
+            <button class="sci-btn" onclick="appendFunction('ln(')">ln</button>
+            <button class="sci-btn" onclick="appendFunction('√(')">√</button>
+            <button class="sci-btn" onclick="appendFunction('^')">xʸ</button>
+            <button class="sci-btn" onclick="appendFunction('!')">x!</button>
+            <button class="sci-btn" onclick="appendConstant('π')">π</button>
+            <button class="sci-btn" onclick="appendConstant('e')">e</button>
+            <button class="sci-btn" onclick="reciprocal()">1/x</button>
+            <button class="sci-btn" onclick="square()">x²</button>
+            <button class="sci-btn" onclick="cube()">x³</button>
+            <button class="sci-btn" onclick="tenPower()">10^x</button>
+            <button class="sci-btn" onclick="expFunction()">e^x</button>
+            <button class="sci-btn" onclick="randomNumber()">Rand</button>
+        </div>
+
+        <!-- Unit Converter Panel -->
+        <div class="converter-panel" id="converterPanel" style="display: none;">
+            <select id="converterType">
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="temperature">Temperature</option>
+                <option value="currency">Currency</option>
+            </select>
+            <input type="number" id="converterInput" placeholder="Enter value">
+            <select id="converterFrom"></select>
+            <span>→</span>
+            <select id="converterTo"></select>
+            <button onclick="convert()">Convert</button>
+            <div id="converterResult"></div>
+        </div>
+
+        <!-- Main Keypad -->
+        <div class="buttons">
+            <button class="btn function" onclick="clearAll()">AC</button>
+            <button class="btn function" onclick="deleteLast()">⌫</button>
+            <button class="btn function" onclick="toggleSign()">±</button>
+            <button class="btn operator" onclick="appendOperator('/')">÷</button>
+
+            <button class="btn" onclick="appendNumber('7')">7</button>
+            <button class="btn" onclick="appendNumber('8')">8</button>
+            <button class="btn" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" onclick="appendOperator('*')">×</button>
+
+            <button class="btn" onclick="appendNumber('4')">4</button>
+            <button class="btn" onclick="appendNumber('5')">5</button>
+            <button class="btn" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" onclick="appendOperator('-')">−</button>
+
+            <button class="btn" onclick="appendNumber('1')">1</button>
+            <button class="btn" onclick="appendNumber('2')">2</button>
+            <button class="btn" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" onclick="appendOperator('+')">+</button>
+
+            <button class="btn zero" onclick="appendNumber('0')">0</button>
+            <button class="btn" onclick="appendNumber('.')">.</button>
+            <button class="btn" onclick="appendOperator('(')">(</button>
+            <button class="btn" onclick="appendOperator(')')">)</button>
+            <button class="btn equals" onclick="calculate()">=</button>
+        </div>
+
+        <!-- History Panel -->
+        <div class="history-panel" id="historyPanel">
+            <h3>History <button onclick="clearHistory()">Clear</button></h3>
+            <ul id="historyList"></ul>
+        </div>
+
+        <!-- Extra Tools -->
+        <div class="extra-tools">
+            <button onclick="copyResult()">📋 Copy</button>
+            <button onclick="pasteValue()">📌 Paste</button>
+            <button onclick="roundResult()">Round</button>
+            <button onclick="floorResult()">Floor</button>
+            <button onclick="ceilResult()">Ceil</button>
+            <button onclick="toggleConverter()">🔄 Converter</button>
+            <button onclick="toggleSound()">🔊 Sound</button>
+            <button onclick="randomNumber()">🎲 Random</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>ULTIMATE CALCULATOR 3000 | Built by MCA Pro 🚀</p>
     </div>
 
     <script src="script.js"></script>
